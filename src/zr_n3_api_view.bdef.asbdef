@@ -1,0 +1,29 @@
+managed
+implementation in class zbp_r_n3_api_view unique;
+strict ( 2 );
+
+define behavior for zr_n3_api_view //alias <alias_name>
+//persistent table <???>
+with unmanaged save
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+  field ( readonly ) Salesorder, Materialbycustomer, kunnr, posnr;
+  action ( features : instance ) GetData result [1] $self;
+  action ( features : instance ) AutoPost result [1] $self; // Pr Create
+  action ( features : instance ) POcreate result [1] $self;
+  action ( features : instance ) GRNcreate result [1] $self;
+
+  mapping for ztt_api_master03
+  { Salesorder = salesorder;
+    Materialbycustomer = materialbycustomer;
+    kunnr              = kunnr;
+    //Salesorderitem = salesorderitem;
+
+  }
+
+}

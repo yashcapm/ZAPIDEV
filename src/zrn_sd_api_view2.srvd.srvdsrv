@@ -1,0 +1,4 @@
+@EndUserText.label: 'so for api new'
+define service ZRN_SD_API_VIEW2 {
+  expose zr_n3_api_view as ApiRview;
+}

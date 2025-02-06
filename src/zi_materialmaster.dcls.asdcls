@@ -1,0 +1,5 @@
+@MappingRole: true
+define role ZI_MaterialMaster {
+  grant select on ZI_MaterialMaster
+  where ( ) = ASPECT pfcg_auth ( 'S_TABU_NAM', ACTVT = '03', TABLE = 'ZI_MATERIALMASTER' );
+}

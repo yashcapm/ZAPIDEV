@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_MaterialMaster_S'
+define service ZUI_MATERIALMASTER {
+  expose ZI_MATERIALMASTER_S as MaterialMasterAll;
+  expose ZI_MATERIALMASTER as MaterialMaster;
+}

@@ -1,0 +1,14 @@
+projection;
+strict ( 2 );
+
+define behavior for zi_n3_api_view //alias <alias_name>
+{
+  use create;
+  use update;
+  use delete;
+
+  use action GetData;
+  use action AutoPost;
+  use action POcreate;
+  use action GRNcreate;
+}

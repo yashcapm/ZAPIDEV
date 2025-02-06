@@ -1,0 +1,55 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'MaterialMaster', 
+    typeNamePlural: 'MaterialMasters', 
+    title: {
+      type: #STANDARD, 
+      label: 'Material Master', 
+      value: 'Material'
+    }
+  }
+}
+annotate view ZI_MaterialMaster with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_MaterialMaster', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'Material Master', 
+    position: 1 
+  } ]
+  Material;
+  
+  @UI.identification: [ {
+    position: 2 
+  } ]
+  @UI.lineItem: [ {
+    position: 2 
+  } ]
+  Apitxt;
+  
+  @UI.identification: [ {
+    position: 3 , 
+    label: 'Material2'
+  } ]
+  @UI.lineItem: [ {
+    position: 3 , 
+    label: 'Material2'
+  } ]
+  Material2;
+  
+  @UI.identification: [ {
+    position: 4 
+  } ]
+  @UI.lineItem: [ {
+    position: 4 
+  } ]
+  Glacc;
+}

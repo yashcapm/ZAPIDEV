@@ -1,0 +1,4 @@
+@EndUserText.label: 'Material Master SD'
+define service Zsd_material_view {
+  expose zr_material_view as MaterialData;
+}

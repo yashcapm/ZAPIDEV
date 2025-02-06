@@ -1,0 +1,44 @@
+@Metadata.layer: #CORE
+@UI.headerInfo:{
+  typeName: 'Total Records',
+  typeNamePlural: 'Total Records',
+  title.iconUrl: 'https://my410857.s4hana.cloud.sap/sap/bc/http/sap/ZABAP_FILE_UPLOADER?sap-client=100'
+  
+  
+
+}
+annotate entity zi_n3_api_view
+    with 
+{
+     @UI.selectionField: [{ position: 10 }]
+  @UI.lineItem: [{ position: 10 , importance: #HIGH},
+  { type: #FOR_ACTION, label: 'GetData', dataAction: 'GetData', invocationGrouping: #CHANGE_SET   }]
+  Salesorder;
+  @UI.selectionField: [{ position: 20 }]
+  @UI.lineItem: [{ position: 20 },
+  { type: #FOR_ACTION, label: 'PRCreate', dataAction: 'AutoPost', invocationGrouping: #CHANGE_SET  }]
+  Materialbycustomer;
+  @UI.selectionField: [{ position: 30 }]
+  @UI.lineItem: [{ position: 30 },
+  { type: #FOR_ACTION, label: 'PoCreate', dataAction: 'POcreate', invocationGrouping: #CHANGE_SET  }]
+  kunnr;
+  @UI.selectionField: [{ position: 40 }]
+  @UI.lineItem: [{ position: 40 },
+  { type: #FOR_ACTION, label: 'GRNCreate', dataAction: 'GRNcreate', invocationGrouping: #CHANGE_SET  }]
+  Creationdate;
+  @UI.lineItem: [{ position: 41 }]
+  yy1_mfgbatchid_sdi;
+//  @UI.lineItem: [{ position: 50 }]
+//  Material;
+  @UI.lineItem: [{ position: 50 }]
+  Plant;
+  @UI.lineItem: [{ position: 60 }]
+  unit_price;
+  @UI.lineItem: [{ position: 70 }]
+  banfn;
+  @UI.lineItem: [{ position: 80 }]
+  ebeln;
+  @UI.lineItem: [{ position: 90 }]
+  mblnr;
+    
+}

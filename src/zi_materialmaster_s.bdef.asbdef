@@ -1,0 +1,76 @@
+managed with additional save implementation in class ZBP_I_MATERIALMASTER_S unique;
+strict;
+with draft;
+define behavior for ZI_MaterialMaster_S alias MaterialMasterAll
+draft table ZTT_MATERIA_D_S
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+
+{
+  field ( readonly )
+   SingletonID;
+
+  field ( features : instance )
+   TransportRequestID;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit with additional implementation;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+  action ( features : instance ) SelectCustomizingTransptReq parameter D_SelectCustomizingTransptReqP result [1] $self;
+
+  association _MaterialMaster { create ( features : instance ); with draft; }
+
+  side effects {
+    action SelectCustomizingTransptReq affects $self;
+  }
+  }
+
+define behavior for ZI_MaterialMaster alias MaterialMaster ##UNMAPPED_FIELD
+persistent table ZTT_MATERIAL
+draft table ZTT_MATERIAL_D
+lock dependent by _MaterialMasterAll
+authorization dependent by _MaterialMasterAll
+
+{
+  field ( mandatory : create )
+   Material,
+   Apitxt;
+
+  field ( readonly )
+   SingletonID;
+
+  field ( readonly : update )
+   Material,
+   Apitxt;
+
+  field ( notrigger )
+   SingletonID;
+
+
+  update( features : global );
+  delete( features : global );
+
+  mapping for ZTT_MATERIAL
+  {
+    Material = MATERIAL;
+    Apitxt = APITXT;
+    Material2 = MATERIAL2;
+    Glacc = GLACC;
+  }
+
+  association _MaterialMasterAll { with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; delete; }
+}

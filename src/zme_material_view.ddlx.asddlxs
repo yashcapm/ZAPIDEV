@@ -1,0 +1,32 @@
+@Metadata.layer: #CORE
+@UI.headerInfo:{
+  typeName: 'Total Records',
+  typeNamePlural: 'Total Records'
+  }
+
+annotate entity zr_material_view with
+{
+  @UI.facet: [{ id : 'InvoiceMaster',
+   purpose: #STANDARD,
+   type: #IDENTIFICATION_REFERENCE,
+   label: 'Master Data',
+   position: 10 }]
+
+  @UI.selectionField: [{ position: 10 }]
+  @UI.lineItem: [{ position: 10 }]
+  @UI.identification: [{ position: 10 }]
+  Material;
+  @UI.selectionField: [{ position: 20 }]
+  @UI.lineItem: [{ position: 20 }]
+  @UI.identification: [{ position: 20 }]
+  Apitxt;
+  @UI.selectionField: [{ position: 30 }]
+  @UI.lineItem: [{ position: 30 }]
+  @UI.identification: [{ position: 30 }]
+  Material2;
+  @UI.selectionField: [{ position: 40 }]
+  @UI.lineItem: [{ position: 40 }]
+  @UI.identification: [{ position: 40 }]
+  Glacc;
+
+}

@@ -1,0 +1,14 @@
+managed;   //implementation in class zbp_r_material_view unique;
+//strict ( 2 );
+
+define behavior for zr_material_view //alias <alias_name>
+persistent table ztt_material
+lock master
+//authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+  //field ( readonly ) Material, Apitxt;
+}
